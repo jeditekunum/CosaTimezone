@@ -247,9 +247,9 @@ public:
    * @param[in] timezone to print.
    * @return output stream.
    */
-  friend IOStream& operator<<(IOStream& outs, const Timezone& tz)
+  friend IOStream& operator<<(IOStream& outs, const Timezone& timezone)
   {
-    outs << (str_P)tz.m_zone->name;
+    outs << (str_P)timezone.m_zone->name;
     return (outs);
   }
 

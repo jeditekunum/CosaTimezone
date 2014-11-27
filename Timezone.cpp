@@ -75,7 +75,7 @@ Timezone::zone(const char *zone_name)
 bool
 Timezone::zone(str_P zone_name)
 {
-  char t[strlen_P(zone_name)];
+  zone_name_t t;
   strcpy_P(t, zone_name);
   return (zone(t));
 }
