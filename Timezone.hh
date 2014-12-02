@@ -1,6 +1,6 @@
 /**
  * @file Timezone.hh
- * @version 0.7
+ * @version 0.8
  *
  * @section License
  * Copyright (C) 2014, jediunix
@@ -278,7 +278,7 @@ IOStream& operator<<(IOStream& outs, const Timezone::Rule& rule);
  * @param[in] zone zone to print (PROGMEM).
  * @return output stream.
  */
-IOStream& operator<<(IOStream& outs, const Timezone::Zone& zone);
+IOStream& operator<<(IOStream& outs, const Timezone::Zone* zone);
 
 /**
  * Global Timezone.

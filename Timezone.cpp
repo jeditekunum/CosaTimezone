@@ -1,6 +1,6 @@
 /**
  * @file Timezone.cpp
- * @version 0.7
+ * @version 0.8
  *
  * @section License
  * Copyright (C) 2014, jediunix
@@ -235,11 +235,11 @@ IOStream& operator<<(IOStream& outs, const Timezone::Rule &rule)
   return (outs);
 }
 
-IOStream& operator<<(IOStream& outs, const Timezone::Zone& zone)
+IOStream& operator<<(IOStream& outs, const Timezone::Zone* zone)
 {
-  outs << PSTR("{\"") << (str_P)zone.name << PSTR("\",")
-       << zone.dst_rule
-       << zone.std_rule
+  outs << PSTR("{\"") << (str_P)zone->name << PSTR("\",")
+       << zone->dst_rule
+       << zone->std_rule
        << PSTR("}");
   return (outs);
 }
