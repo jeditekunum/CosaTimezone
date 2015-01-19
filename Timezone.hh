@@ -3,7 +3,7 @@
  * @version 0.8
  *
  * @section License
- * Copyright (C) 2014, jediunix
+ * Copyright (C) 2014-2015, jeditekunum
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -233,7 +233,7 @@ public:
    * @return time of DST start in given year.
    */
   clock_t dst_utc(const uint8_t year);
-    
+
   /**
    * Get clock for STD change time.
    * @param[in] year year.

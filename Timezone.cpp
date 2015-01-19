@@ -3,7 +3,7 @@
  * @version 0.8
  *
  * @section License
- * Copyright (C) 2014, jediunix
+ * Copyright (C) 2014-2015, jeditekunum
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -149,7 +149,7 @@ Timezone::utc(const time_t& local)
     dst = (clock_local >= dst_clock_local && clock_local < std_clock_local);
   else  // southern hemisphere
     dst = !(clock_local >= std_clock_local && clock_local < dst_clock_local);
-  
+
   if (dst)
     clock_local -= (Timezone::offset_t)pgm_read_word(&m_zone->dst_rule.offset)*60;
   else
