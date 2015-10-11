@@ -1,6 +1,6 @@
 /**
  * @file CosaTimezone.ino
- * @version 0.7
+ * @version 0.9
  *
  * @section License
  * Copyright (C) 2014-2015, jeditekunum
@@ -38,7 +38,7 @@ Timezone us_m_tz;
 #ifdef TIMEZONE_US_PACIFIC
 Timezone us_p_tz;
 #endif
-#ifdef TIMEZONE_SWEDEN
+#ifdef TIMEZONE_EUROPE_STOCKHOLM
 Timezone eu_sweden_tz;
 #endif
 
@@ -60,7 +60,7 @@ void print(time_t &t)
 #ifdef TIMEZONE_US_PACIFIC
   ios << time_t(us_p_tz.local(t)) << PSTR(" ") << us_p_tz.abbrev(t) << PSTR(" ") << us_p_tz << endl;
 #endif
-#ifdef TIMEZONE_SWEDEN
+#ifdef TIMEZONE_EUROPE_STOCKHOLM
   ios << time_t(eu_sweden_tz.local(t)) << PSTR(" ") << eu_sweden_tz.abbrev(t) << PSTR(" ") << eu_sweden_tz << endl;
 #endif
 }
@@ -87,8 +87,8 @@ void setup()
 #ifdef TIMEZONE_US_PACIFIC
   us_p_tz.zone(PSTR(TIMEZONE_US_PACIFIC));
 #endif
-#ifdef TIMEZONE_SWEDEN
-  eu_sweden_tz.zone(PSTR(TIMEZONE_SWEDEN));
+#ifdef TIMEZONE_EUROPE_STOCKHOLM
+  eu_sweden_tz.zone(PSTR(TIMEZONE_EUROPE_STOCKHOLM));
 #endif
 
   time_t t;

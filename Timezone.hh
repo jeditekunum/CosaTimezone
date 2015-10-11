@@ -1,6 +1,6 @@
 /**
  * @file Timezone.hh
- * @version 0.8
+ * @version 0.9
  *
  * @section License
  * Copyright (C) 2014-2015, jeditekunum
@@ -23,17 +23,12 @@
 #include "Cosa/IOStream.hh"
 #include "Cosa/Time.hh"
 
-// Timezone names must be plain strings however applications can wrap with PSTR().
+// UTC must always be available
 
 #define TIMEZONE_UTC                    "UTC"
 
-// Program space can be saved by commenting out unused timezones.
-
-#define TIMEZONE_US_EASTERN             "US/Eastern"
-#define TIMEZONE_US_CENTRAL             "US/Central"
-#define TIMEZONE_US_MOUNTAIN            "US/Mountain"
-#define TIMEZONE_US_PACIFIC             "US/Pacific"
-//#define TIMEZONE_SWEDEN                "Europe/Stockholm"
+// It is very important that TimezoneConfig.hh be included with <>. Do NOT use "".
+#include <TimezoneConfig.hh>
 
 
 // Month numbers (1..12)
@@ -56,11 +51,11 @@ class Timezone {
 public:
   /** Week. */
   enum Week {
-    LAST,
-    FIRST,
-    SECOND,
-    THIRD,
-    FOURTH
+    LAST = 0,
+    FIRST = 1,
+    SECOND = 2,
+    THIRD = 3,
+    FOURTH = 4
   } __attribute__((packed));
 
   typedef int16_t offset_t;
@@ -84,8 +79,8 @@ public:
   /** Zone. */
   struct Zone {       // PROGMEM
     zone_name_t name;
-    Rule dst_rule;
     Rule std_rule;
+    Rule dst_rule;
   } __attribute__((packed));
 
   /**

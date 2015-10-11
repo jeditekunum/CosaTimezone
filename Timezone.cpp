@@ -1,6 +1,6 @@
 /**
  * @file Timezone.cpp
- * @version 0.8
+ * @version 0.9
  *
  * @section License
  * Copyright (C) 2014-2015, jeditekunum
@@ -20,43 +20,15 @@
 #include "Cosa/IOStream.hh"
 #include "Timezone.hh"
 
+// It is very important that TimezoneRules.hh be included with <>. Do NOT use "".
+#include <TimezoneRules.hh>
+
+
 /**
  * Global Timezone.
  */
 Timezone tz;
 
-
-static const Timezone::Zone timezones[] __PROGMEM =
-  {
-#ifdef TIMEZONE_US_EASTERN
-    {TIMEZONE_US_EASTERN,
-     {"EDT", MARCH, Timezone::SECOND, SUNDAY, 2, -4*60},
-     {"EST", NOVEMBER, Timezone::FIRST, SUNDAY, 3, -5*60}},
-#endif
-#ifdef TIMEZONE_US_CENTRAL
-    {TIMEZONE_US_CENTRAL,
-     {"CDT", MARCH, Timezone::SECOND, SUNDAY, 2, -5*60},
-     {"CST", NOVEMBER, Timezone::FIRST, SUNDAY, 3, -6*60}},
-#endif
-#ifdef TIMEZONE_US_MOUNTAIN
-    {TIMEZONE_US_MOUNTAIN,
-     {"MDT", MARCH, Timezone::SECOND, SUNDAY, 2, -6*60},
-     {"MST", NOVEMBER, Timezone::FIRST, SUNDAY, 3, -7*60}},
-#endif
-#ifdef TIMEZONE_US_PACIFIC
-    {TIMEZONE_US_PACIFIC,
-     {"PDT", MARCH, Timezone::SECOND, SUNDAY, 2, -7*60},
-     {"PST", NOVEMBER, Timezone::FIRST, SUNDAY, 3, -8*60}},
-#endif
-#ifdef TIMEZONE_SWEDEN
-    {TIMEZONE_SWEDEN,
-     {"CEST", MARCH, Timezone::LAST, SUNDAY, 2, 2*60},
-     {"CET", OCTOBER, Timezone::LAST, SUNDAY, 3, 1*60}},
-#endif
-    {"UTC",
-     {"UTC", JANUARY, Timezone::FIRST, SUNDAY, 0, 0*60},
-     {"UTC", DECEMBER, Timezone::LAST, SUNDAY, 0, 0*60}}
-  };
 
 bool
 Timezone::zone(const char *zone_name)
