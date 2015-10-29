@@ -18,7 +18,7 @@
  */
 
 #include "Cosa/IOStream.hh"
-#include "Cosa/IOStream/Driver/UART.hh"
+#include "Cosa/UART.hh"
 #include "Cosa/Time.hh"
 
 #include "Timezone.hh"
